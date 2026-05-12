@@ -14,6 +14,7 @@ namespace PharmacyWinForms
     {
         public Dashboard()
         {
+
             InitializeComponent();
         }
 
@@ -29,8 +30,9 @@ namespace PharmacyWinForms
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
+            userProfileControl1.Visible = false;
             lblTime.Text = DateTime.Now.ToString("M/d/yyyy");
-            lbldate.Text=   DateTime.Now.ToString("hh:mm tt");
+            lbldate.Text = DateTime.Now.ToString("hh:mm tt");
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -44,14 +46,8 @@ namespace PharmacyWinForms
 
         private void userIcon_Click(object sender, EventArgs e)
         {
-            Point pt = userIcon.PointToScreen(new Point(-UserMenu.Width + userIcon.Width, userIcon.Height));
-            UserMenu.Show(pt);
-        }
-
-        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            new Login().Show();
+            userProfileControl1.Visible = true;
         }
     }
+
 }
