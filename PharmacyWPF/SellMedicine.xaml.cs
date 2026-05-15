@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PharmacyClassLibrary;
 
 namespace PharmacyWPF
 {
@@ -35,20 +36,20 @@ namespace PharmacyWPF
 
         public void AddToCartBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (int.TryParse(MedicineIDTxt.Text, out int parsedMedicineId) == false || MedicineIDTxt.Text == MedicineIDTxt.Placeholder)
+            if (int.TryParse(MedicineIDTxt.Text, out int parsedMedicineId) == false || MedicineIDTxt.Text == MedicineIDTxt.Placeholder || parsedMedicineId <= 0)
             {
                 MessageBox.Show("Invalid Medicine Id", "Input Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if (int.TryParse(CustomerIDTxt.Text, out int parsedCustomerId) == false || CustomerIDTxt.Text == CustomerIDTxt.Placeholder)
+            if (long.TryParse(CustomerIDTxt.Text, out long parsedCustomerId) == false || CustomerIDTxt.Text == CustomerIDTxt.Placeholder || parsedCustomerId <= 0 )
             {
                 MessageBox.Show("Invalid Customer Id", "Input Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            if (int.TryParse(CustomerAgeTxt.Text, out int parsedCustomerAge) == false || CustomerAgeTxt.Text == CustomerAgeTxt.Placeholder)
+            if (int.TryParse(CustomerAgeTxt.Text, out int parsedCustomerAge) == false || CustomerAgeTxt.Text == CustomerAgeTxt.Placeholder || parsedCustomerAge <0)
             {
-                MessageBox.Show("Invalid Customer Id", "Input Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Invalid Customer Age", "Input Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             if (MedicineNameTxt.Text == MedicineNameTxt.Placeholder || int.TryParse(MedicineNameTxt.Text, out int parsedMedicineName) == true)
@@ -62,9 +63,9 @@ namespace PharmacyWPF
                 return;
             }
 
-            if (int.TryParse(NumofUnitTxt.Text, out int parsedNumUnits) == false || NumofUnitTxt.Text == NumofUnitTxt.Placeholder)
+            if (int.TryParse(NumofUnitTxt.Text, out int parsedNumUnits) == false || NumofUnitTxt.Text == NumofUnitTxt.Placeholder || parsedNumUnits <= 0)
             {
-                MessageBox.Show("Invalid Medicine Id", "Input Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Please enter a valid quantity (greater than 0)." , "Input Error" , MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
 
 

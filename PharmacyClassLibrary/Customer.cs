@@ -56,7 +56,7 @@ namespace PharmacyClassLibrary
         {
             Customer_Age = 0;
             Customer_Name = "";
-            Customer_ID = 00000000000000;
+            Customer_ID = 10000000000000;
         }
     }
 
