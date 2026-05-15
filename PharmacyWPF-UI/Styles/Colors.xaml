@@ -1,18 +1,16 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <SolidColorBrush x:Key="NavBarBrush"      Color="#00ACB2"/>
-    <SolidColorBrush x:Key="MidTealBrush"     Color="#33BDC2"/>
-    <SolidColorBrush x:Key="LightTealBrush"   Color="#66CFD0"/>
-    <SolidColorBrush x:Key="ButtonBrush"      Color="#66E0D9"/>
-    <SolidColorBrush x:Key="BaseBrush"        Color="#F5F1F1"/>
-    <SolidColorBrush x:Key="ButtonTextBrush"  Color="#000000"/>
-    <SolidColorBrush x:Key="WhiteBrush"       Color="#FFFFFF"/>
-    <SolidColorBrush x:Key="TextPrimaryBrush" Color="#1a1a1a"/>
-    <SolidColorBrush x:Key="TextMutedBrush"   Color="#6b7280"/>
-    <SolidColorBrush x:Key="BorderBrush"      Color="#e5e7eb"/>
-
-    <!-- Status colors -->
+    <SolidColorBrush x:Key="NavBarBrush"      Color="#ffffff"/>
+    <SolidColorBrush x:Key="BaseBrush"        Color="#daf0ee"/>
+    <SolidColorBrush x:Key="ButtonBrush"      Color="#94d1be"/>
+    <SolidColorBrush x:Key="MidTealBrush"     Color="#9db5b2"/>
+    <SolidColorBrush x:Key="LightTealBrush"   Color="#9db5b2"/>
+    <SolidColorBrush x:Key="TextPrimaryBrush" Color="#3b413c"/>
+    <SolidColorBrush x:Key="ButtonTextBrush"  Color="#ffffff"/>
+    <SolidColorBrush x:Key="WhiteBrush"       Color="#ffffff"/>
+    <SolidColorBrush x:Key="TextMutedBrush"   Color="#8a9996"/>
+    <SolidColorBrush x:Key="BorderBrush"      Color="#c4d9d6"/>
     <SolidColorBrush x:Key="ExpiredBgBrush"       Color="#FECACA"/>
     <SolidColorBrush x:Key="ExpiredTextBrush"      Color="#991B1B"/>
     <SolidColorBrush x:Key="ExpiringSoonBgBrush"   Color="#FEF3C7"/>

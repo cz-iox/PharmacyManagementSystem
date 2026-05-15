@@ -264,6 +264,15 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Resource Include="Resources\Alexandria-Black.ttf" />
+    <Resource Include="Resources\Alexandria-Bold.ttf" />
+    <Resource Include="Resources\Alexandria-ExtraBold.ttf" />
+    <Resource Include="Resources\Alexandria-ExtraLight.ttf" />
+    <Resource Include="Resources\Alexandria-Light.ttf" />
+    <Resource Include="Resources\Alexandria-Medium.ttf" />
+    <Resource Include="Resources\Alexandria-Regular.ttf" />
+    <Resource Include="Resources\Alexandria-SemiBold.ttf" />
+    <Resource Include="Resources\Alexandria-Thin.ttf" />
     <Resource Include="Resources\Noto\NotoSans-Bold.ttf" />
     <Resource Include="Resources\Noto\NotoSans-BoldItalic.ttf" />
     <Resource Include="Resources\Noto\NotoSans-Italic.ttf" />
