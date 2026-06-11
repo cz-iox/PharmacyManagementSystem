@@ -32,6 +32,7 @@
                         Style="{StaticResource GhostButtonStyle}"
                         Height="40"
                         Padding="16,0"
+                        Margin="16,0,0,0"
                         VerticalAlignment="Center"
                         Click="ExportBtn_Click">
                     <StackPanel Orientation="Horizontal">
@@ -46,7 +47,8 @@
                          Height="36" Padding="10,0" FontSize="13" Background="#F9FAFB" Foreground="#3b413c" BorderBrush="#c4d9d6" BorderThickness="1" VerticalContentAlignment="Center"
                          FontFamily="Alexandria"
                          TextChanged="SearchBox_TextChanged"/>
-                <iconPacks:PackIconMaterial Kind="Magnify"
+                <iconPacks:PackIconMaterial x:Name="SearchIcon"
+                                            Kind="Magnify"
                                             Width="16" Height="16"
                                             Foreground="#8a9996"
                                             HorizontalAlignment="Left"

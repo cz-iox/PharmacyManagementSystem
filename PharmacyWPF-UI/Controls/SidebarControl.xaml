@@ -158,6 +158,7 @@
 
                     <RadioButton GroupName="Nav"
                                  Tag="UserManagement"
+                                 x:Name="UMB"
                                  Style="{StaticResource SidebarNavRadioButtonStyle}"
                                  Checked="NavItem_Checked">
                         <StackPanel Orientation="Horizontal">

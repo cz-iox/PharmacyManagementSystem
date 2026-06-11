@@ -48,6 +48,12 @@
     <Compile Include="PrescriptionMedicine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SaleTransaction.cs" />
+    <Compile Include="UserInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Userinfo.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
