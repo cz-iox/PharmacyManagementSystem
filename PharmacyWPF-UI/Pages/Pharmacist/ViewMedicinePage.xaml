@@ -90,16 +90,17 @@
                           RowStyle="{StaticResource ModernDataGridRowStyle}"
                           MinHeight="420">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="90" FontFamily="Alexandria"/>
-                        <DataGridTextColumn Header="NAME" Binding="{Binding Name}" Width="2*" FontFamily="Alexandria"/>
-                        <DataGridTextColumn Header="CATEGORY" Binding="{Binding Category}" Width="*" FontFamily="Alexandria"/>
-                        <DataGridTextColumn Header="STOCK" Binding="{Binding Stock}" Width="80" FontFamily="Alexandria"/>
-                        <DataGridTextColumn Header="PRICE" Binding="{Binding PriceDisplay}" Width="90" FontFamily="Alexandria"/>
-                        <DataGridTextColumn Header="EXPIRY" Binding="{Binding ExpiryDisplay}" Width="110" FontFamily="Alexandria"/>
+                        <DataGridTextColumn Header="ID" Binding="{Binding MedicineID}" Width="100" FontFamily="Alexandria"/>
+                        <DataGridTextColumn Header="NAME" Binding="{Binding Name}" Width="auto" FontFamily="Alexandria"/>
+                        <DataGridTextColumn Header="PRICE" Binding="{Binding Price}" Width="70" FontFamily="Alexandria"/>
+                        <DataGridTextColumn Header="MANUFACTURER" Binding="{Binding Manufacturer}" Width="auto" FontFamily="Alexandria"/>
+                        <DataGridTextColumn Header="QUANTITY" Binding="{Binding QuantityInStock}" Width="90" FontFamily="Alexandria"/>
+                        <DataGridTextColumn Header="CATEGORY" Binding="{Binding MedicineType}" Width="90" FontFamily="Alexandria"/>
+                        <DataGridTextColumn Header="EXPIRY DATE" Binding="{Binding ExpiryDate, StringFormat=yyyy-MM-dd}" Width="auto" FontFamily="Alexandria"/>
                         <DataGridTemplateColumn Header="STATUS" Width="*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <controls:StatusBadgeControl Status="{Binding Status}" Margin="0,4"/>
+                                    <controls:StatusBadgeControl Status="{Binding Status}" Width="100" Margin="0,4"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>

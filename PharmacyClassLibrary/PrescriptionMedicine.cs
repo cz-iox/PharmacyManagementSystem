@@ -8,6 +8,10 @@ namespace PharmacyClassLibrary
 {
     public class PrescriptionMedicine : Medicine
     {
-
+        public string MedicineType => "Prescription";
+        public override bool CanSellWithoutPrescription()
+        {
+            return false; 
+        }
     }
 }

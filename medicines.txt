@@ -1,0 +1,51 @@
+ID,Name,Price,Manufacturer,Quantity,ExpiryDate,RequiresPrescription
+MED001,Paracetamol 500mg,15.50,EVA Pharma,200,2025-08-01,false
+MED002,Amoxicillin 250mg,45.00,Pharco,150,2026-05-15,true
+MED003,Ibuprofen 400mg,22.75,GlaxoSmithKline,180,2027-01-10,false
+MED004,Omeprazole 20mg,60.00,Novartis,100,2026-11-30,true
+MED005,Metformin 500mg,30.00,EIPICO,250,2027-03-20,true
+MED006,Atorvastatin 10mg,85.00,Pfizer,90,2026-09-05,true
+MED007,Cetirizine 10mg,18.00,Marcyrl,300,2027-06-12,false
+MED008,Azithromycin 500mg,95.00,Pharco,75,2026-07-22,true
+MED009,Vitamin C 1000mg,25.00,Minapharm,400,2028-01-01,false
+MED010,Insulin Glargine,350.00,Sanofi,50,2026-04-30,true
+MED011,Dexamethasone 4mg,12.00,ADCO,160,2027-02-14,true
+MED012,Ciprofloxacin 500mg,55.00,Bayer,120,2026-10-18,true
+MED013,Salbutamol Inhaler,110.00,GlaxoSmithKline,60,2027-05-09,true
+MED014,Losartan 50mg,40.00,EIPICO,130,2027-08-25,true
+MED015,Amitriptyline 25mg,28.00,EVA Pharma,85,2026-12-31,true
+MED016,Diclofenac 50mg,19.50,Novartis,200,2027-04-17,false
+MED017,Pantoprazole 40mg,70.00,Pfizer,95,2026-06-08,true
+MED018,Clopidogrel 75mg,120.00,Sanofi,70,2027-07-03,true
+MED019,Simvastatin 20mg,65.00,Marcyrl,110,2026-03-19,true
+MED020,Fluconazole 150mg,48.00,Pharco,140,2027-09-11,true
+MED021,Ranitidine 150mg,20.00,ADCO,175,2027-01-25,false
+MED022,Metronidazole 250mg,14.00,EIPICO,220,2026-08-14,true
+MED023,Hydrocortisone Cream,35.00,GlaxoSmithKline,80,2027-10-05,false
+MED024,Amlodipine 5mg,38.00,Pfizer,160,2027-03-30,true
+MED025,Warfarin 5mg,55.00,Novartis,65,2026-09-18,true
+MED026,Lisinopril 10mg,42.00,EIPICO,145,2027-06-22,true
+MED027,Gabapentin 300mg,75.00,Bayer,90,2027-02-07,true
+MED028,Sertraline 50mg,88.00,Pfizer,70,2026-11-12,true
+MED029,Furosemide 40mg,16.00,EVA Pharma,210,2027-08-03,true
+MED030,Albuterol Syrup,45.00,Marcyrl,100,2027-05-19,true
+MED031,Ceftriaxone 1g,130.00,Pharco,55,2026-07-09,true
+MED032,Naproxen 500mg,27.00,Novartis,190,2027-04-28,false
+MED033,Clindamycin 300mg,78.00,GlaxoSmithKline,85,2026-10-01,true
+MED034,Hydroxychloroquine 200mg,95.00,Sanofi,60,2027-09-16,true
+MED035,Erythromycin 500mg,52.00,ADCO,115,2026-06-27,true
+MED036,Folic Acid 5mg,10.00,Minapharm,350,2028-03-10,false
+MED037,Zinc Sulfate 220mg,22.00,EVA Pharma,260,2028-02-05,false
+MED038,Prednisolone 5mg,18.50,EIPICO,195,2027-01-14,true
+MED039,Tramadol 50mg,35.00,Bayer,75,2026-05-30,true
+MED040,Alprazolam 0.5mg,60.00,Pfizer,50,2026-08-22,true
+MED041,Digoxin 0.25mg,30.00,Novartis,100,2027-07-18,true
+MED042,Spironolactone 25mg,44.00,Sanofi,125,2027-03-06,true
+MED043,Tamoxifen 20mg,150.00,GlaxoSmithKline,40,2027-11-23,true
+MED044,Methotrexate 2.5mg,200.00,Pfizer,30,2026-09-29,true
+MED045,Doxycycline 100mg,38.00,Pharco,135,2027-06-04,true
+MED046,Levofloxacin 500mg,85.00,Bayer,80,2026-12-15,true
+MED047,Nifedipine 10mg,32.00,Marcyrl,170,2027-04-11,true
+MED048,Bisoprolol 5mg,50.00,EVA Pharma,140,2027-08-19,true
+MED049,Calcium Carbonate 500mg,20.00,Minapharm,300,2028-05-01,false
+MED050,Multivitamins,40.00,ADCO,280,2028-04-15,false

@@ -1,16 +1,10 @@
-﻿using System.Windows;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using PharmacyClassLibrary;
 
 namespace PharmacyWPF_UI.Controls
 {
-    public enum MedicineStatusKind
-    {
-        Valid,
-        ExpiringSoon,
-        Expired
-    }
-
     public partial class StatusBadgeControl : UserControl
     {
         public static readonly DependencyProperty StatusProperty =
