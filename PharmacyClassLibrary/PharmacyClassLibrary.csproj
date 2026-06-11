@@ -48,6 +48,7 @@
     <Compile Include="PrescriptionMedicine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SaleTransaction.cs" />
+    <Compile Include="UserInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

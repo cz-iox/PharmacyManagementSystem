@@ -54,7 +54,7 @@ namespace PharmacyWPF_UI.Pages.Admin
             MedicineGrid.ItemsSource = medicines;
         }
 
-        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e) { }
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e) {  }
         private void ExportBtn_Click(object sender, RoutedEventArgs e) { }
     }
 }
