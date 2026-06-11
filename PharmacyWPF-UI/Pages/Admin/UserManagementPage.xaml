@@ -47,8 +47,8 @@
                         <TextBlock Text="Full Name" FontSize="12" Foreground="#8a9996" Margin="0,0,0,4" FontFamily="Alexandria"/>
                         <TextBox x:Name="FullNameBox" Height="36" Padding="10,0" FontSize="13" Background="#F9FAFB" Foreground="#3b413c" BorderBrush="#c4d9d6" BorderThickness="1" VerticalContentAlignment="Center" FontFamily="Alexandria" Margin="0,0,0,12"/>
 
-                        <TextBlock Text="Username" FontSize="12" Foreground="#8a9996" Margin="0,0,0,4" FontFamily="Alexandria"/>
-                        <TextBox x:Name="UsernameBox" Height="36" Padding="10,0" FontSize="13" Background="#F9FAFB" Foreground="#3b413c" BorderBrush="#c4d9d6" BorderThickness="1" VerticalContentAlignment="Center" FontFamily="Alexandria" Margin="0,0,0,12"/>
+                        <TextBlock Text="Phone Number" FontSize="12" Foreground="#8a9996" Margin="0,0,0,4" FontFamily="Alexandria"/>
+                        <TextBox x:Name="PhoneBox" Height="36" Padding="10,0" FontSize="13" Background="#F9FAFB" Foreground="#3b413c" BorderBrush="#c4d9d6" BorderThickness="1" VerticalContentAlignment="Center" FontFamily="Alexandria" Margin="0,0,0,12"/>
 
                         <TextBlock Text="Password" FontSize="12" Foreground="#8a9996" Margin="0,0,0,4" FontFamily="Alexandria"/>
                         <PasswordBox x:Name="PasswordBox" Height="38" FontFamily="Alexandria" Padding="10,0" Margin="0,0,0,4"/>
@@ -64,6 +64,11 @@
                                   Height="38" FontSize="13" Background="#E6F7F8" Foreground="#3b413c" BorderBrush="#c4d9d6" BorderThickness="1" VerticalContentAlignment="Center"
                                   FontFamily="Alexandria"
                                   Margin="0,0,0,20"/>
+                        <TextBlock Text="Shift" FontSize="12" Foreground="#8a9996" Margin="0,0,0,4" FontFamily="Alexandria"/>
+                        <ComboBox x:Name="ShiftCombo"
+          Height="38" FontSize="13" Background="#E6F7F8" Foreground="#3b413c" BorderBrush="#c4d9d6" BorderThickness="1" VerticalContentAlignment="Center"
+          FontFamily="Alexandria"
+          Margin="0,0,0,20"/>
 
                         <Button Style="{StaticResource PrimaryButtonStyle}"
                                 Height="40"
@@ -105,10 +110,9 @@
                                   Style="{StaticResource ModernDataGridStyle}"
                                   ColumnHeaderStyle="{StaticResource ModernDataGridColumnHeaderStyle}"
                                   RowStyle="{StaticResource ModernDataGridRowStyle}"
-                                  MinHeight="420">
+                                  MinHeight="420" IsReadOnly="True">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="USERNAME" Binding="{Binding Username}" Width="*" FontFamily="Alexandria"/>
-                                <DataGridTextColumn Header="NAME" Binding="{Binding FullName}" Width="*" FontFamily="Alexandria"/>
+                                <DataGridTextColumn Header="NAME" Binding="{Binding FullName}" Width="*" FontFamily="Alexandria" />
                                 <DataGridTemplateColumn Header="ROLE" Width="120">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
@@ -133,12 +137,6 @@
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal">
-                                                <Button Style="{StaticResource OutlineEditButtonStyle}"
-                                                        Margin="0,0,8,0"
-                                                        Tag="{Binding}"
-                                                        Click="EditUser_Click">
-                                                    <TextBlock Text="Edit" FontFamily="Alexandria" FontSize="12"/>
-                                                </Button>
                                                 <Button Style="{StaticResource OutlineDangerButtonStyle}"
                                                         Tag="{Binding}"
                                                         Click="DeleteUser_Click">

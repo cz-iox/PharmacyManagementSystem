@@ -1,6 +1,8 @@
 using PharmacyWPF_UI.Controls;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
+using UserInfoClass;
 
 namespace PharmacyWPF_UI
 {
@@ -36,6 +38,25 @@ namespace PharmacyWPF_UI
             if (username == "t" && password == "t123")
             {
                 OpenMain(SidebarRole.Pharmacist, "P");
+                return;
+            }
+            if(username == "o" && password == "o1")
+                {
+                OpenMain(SidebarRole.Admin, "A");
+                return;
+            }
+            if(UserInfo.LoadUserFull().Any(u => u.Name == username && u.password.ToString() == password))
+            {
+                var user = UserInfo.LoadUserFull().First(u => u.Name == username && u.password.ToString() == password);
+                UserInfo.UpdateLastLogin(user);
+                if (user.Role == "Admin")
+                {
+                    OpenMain(SidebarRole.Admin, "A");
+                }
+                else if(user.Role == "Pharmacist")
+                {
+                    OpenMain(SidebarRole.Pharmacist, "P");
+                }
                 return;
             }
 

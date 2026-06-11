@@ -9,6 +9,9 @@ namespace PharmacyWPF_UI
 {
     public partial class MainWindow : Window
     {
+        public static MainWindow Instance { get; private set; }
+
+
         public MainWindow(SidebarRole role, string userInitial)
         {
             InitializeComponent();
@@ -17,6 +20,7 @@ namespace PharmacyWPF_UI
             TopBar.SetUser(userInitial, role);
             Sidebar.NavigationRequested += OnNavigationRequested;
             Sidebar.SignOutRequested += OnSignOutRequested;
+            Instance = this;
         }
 
         private void OnSignOutRequested(object sender, EventArgs e)
