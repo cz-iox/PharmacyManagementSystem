@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="PharmacyWPF_UI.Controls.TopBarControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             mc:Ignorable="d"
+             d:DesignHeight="64"
+             d:DesignWidth="900">
+    <Border Background="#f5f1f1"
+            BorderBrush="#c4d9d6"
+            BorderThickness="0,0,0,1"
+            Padding="20,12">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+
+                <TextBlock Text="Welcome Back.."
+                           FontSize="16"
+                           FontWeight="Bold"
+                           FontFamily="Alexandria"
+                           Foreground="#8a9996"
+                           VerticalAlignment="Center"/>
+
+                <iconPacks:PackIconMaterial Kind="HandWaveOutline"
+                                            Padding="1"
+                                            Width="20" 
+                                            Height="20"
+                                            Foreground="#8a9996"
+                                            Margin="4,2,8,0"/>
+
+                <Border x:Name="RoleBadge"
+                        Background="#daf0ee"
+                        CornerRadius="12"
+                        Padding="10,4"
+                        Margin="12,0,0,0"
+                        VerticalAlignment="Center">
+                    <TextBlock x:Name="RoleBadgeText"
+                               Text="Pharmacist"
+                               FontSize="12"
+                               FontFamily="Alexandria"
+                               Foreground="#00acb2"/>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                <TextBlock x:Name="DateText"
+                           FontSize="13"
+                           Foreground="#8a9996"
+                           VerticalAlignment="Center"
+                           Margin="0,0,16,0"/>
+                <Border Width="32" Height="32" CornerRadius="16" Background="#daf0ee" >
+                    <TextBlock x:Name="UserInitialText"
+                               Text="?"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontWeight="Bold"
+                               Foreground="#00acb2"/>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>
