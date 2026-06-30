@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="medicines.txt" />
+    <File Path="Userinfo.txt" />
+  </Folder>
+  <Project Path="PharmacyClassLibrary/PharmacyClassLibrary.csproj" Id="4538c269-8137-48d3-b011-a0370ef0c61f" />
+  <Project Path="PharmacyWPF-UI/PharmacyWPF-UI.csproj" Id="2c32bb7d-df7a-4fce-b94e-fd286161a996" />
+</Solution>
