@@ -1,9 +1,10 @@
-﻿using PharmacyClassLibrary;
+using PharmacyClassLibrary;
 using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Web.UI.WebControls;
 
 namespace PharmacyWPF_UI.Pages.Admin
 {
@@ -19,9 +20,8 @@ namespace PharmacyWPF_UI.Pages.Admin
         {
             medicines.Clear();
 
-            string[] MediList = File.ReadAllLines("C:\\Users\\Talal\\Desktop\\PharmacyManagementSystem\\medicines.txt");
+            string[] MediList = File.ReadAllLines(Path.Combine(AppContext.BaseDirectory, "medicines.txt"));
 
-            //loop 3shan n5zn el data of medicines
             for (int i = 1; i < MediList.Length; i++)
             {
                 string[] MediColmun = MediList[i].Split(',');

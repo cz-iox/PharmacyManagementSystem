@@ -23,7 +23,7 @@
                        Margin="0,6,0,0"/>
 
 
-            <!-- Cards on Top-->
+    
                 <Grid Margin="0,24,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -44,12 +44,12 @@
                                           TrendText="Needs Attention"
                                           TrendIsPositive="False"
                                           IconKind="CloseCircleOutline"/>
-                    
 
-                <controls:StatCardControl x:Name="todayCustomersCard"
+
+                <controls:StatCardControl x:Name="MonthlyCustomers"
                                           Grid.Column="2"
                                           Margin="0,0,0,0"
-                                          Title="Today Customers"
+                                          Title="Monthly Customers"
                                           ShowTrend="False"
                                           IconKind="AccountCash"/>
             </Grid>

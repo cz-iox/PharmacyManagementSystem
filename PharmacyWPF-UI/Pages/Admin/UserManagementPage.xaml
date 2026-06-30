@@ -28,7 +28,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <!-- Create user -->
+        
                 <Border Grid.Column="0"
                         Background="White"
                         BorderBrush="#c4d9d6"
@@ -90,7 +90,7 @@
                     </StackPanel>
                 </Border>
 
-                <!-- All accounts -->
+        
                 <Border Grid.Column="2"
                         Background="White"
                         BorderBrush="#c4d9d6"

@@ -1,4 +1,4 @@
-﻿using PharmacyClassLibrary;
+using PharmacyClassLibrary;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,9 +22,8 @@ namespace PharmacyWPF_UI.Pages.Pharmacist
         {
             medicines.Clear();
 
-            string[] MediList = File.ReadAllLines("C:\\Users\\Talal\\Desktop\\PharmacyManagementSystem\\medicines.txt");
+            string[] MediList = File.ReadAllLines(Path.Combine(AppContext.BaseDirectory, "medicines.txt"));
 
-            //loop 3shan n5zn el data of medicines
             for (int i = 1; i < MediList.Length; i++)
             {
                 string[] MediColmun = MediList[i].Split(',');
@@ -56,7 +55,30 @@ namespace PharmacyWPF_UI.Pages.Pharmacist
         }
 
 
-        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e) { }
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string query = SearchBox.Text.Trim().ToLower();
+
+            if (string.IsNullOrEmpty(query))
+            {
+                MedicineGrid.ItemsSource = null;
+                MedicineGrid.ItemsSource = medicines;
+                return;
+            }
+
+            List<Medicine> filtered = new List<Medicine>();
+            foreach (Medicine med in medicines)
+            {
+                string name = med.Name?.ToLower() ?? "";
+                string id = med.MedicineID?.ToLower() ?? "";
+                if (name.Contains(query) || id.Contains(query))
+                    filtered.Add(med);
+            }
+
+            MedicineGrid.ItemsSource = null;
+            MedicineGrid.ItemsSource = filtered;
+        }
+
         private void ExportBtn_Click(object sender, RoutedEventArgs e) { }
     }
 }

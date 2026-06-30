@@ -1,5 +1,4 @@
 using PharmacyWPF_UI.Controls;
-using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using UserInfoClass;
@@ -27,48 +26,35 @@ namespace PharmacyWPF_UI
             ErrorText.Visibility = Visibility.Collapsed;
 
             string username = UsernameBox.Text.Trim();
-            string password = PasswordBox.Password;
+            string password = PasswordBox.Password.Trim();
 
-            if (username == "admin" && password == "admin123")
+          
+            if (!int.TryParse(password, out int passwordInt))
             {
-                OpenMain(SidebarRole.Admin, "A");
-                return;
-            }
-
-            if (username == "t" && password == "t123")
-            {
-                OpenMain(SidebarRole.Pharmacist, "P");
-                return;
-            }
-            if (username == "o" && password == "o1")
-            {
-                OpenMain(SidebarRole.Admin, "A");
-                return;
-            }
-            if (UserInfo.LoadUserFull().Any(u => u.Name == username && u.password.ToString() == password))
-            {
-                var user = UserInfo.LoadUserFull().First(u => u.Name == username && u.password.ToString() == password);
-                UserInfo.UpdateLastLogin(user);
-                if (user.Role == "Admin")
-                {
-                    OpenMain(SidebarRole.Admin, "A");
-                }
-                else if (user.Role == "Pharmacist")
-                {
-                    OpenMain(SidebarRole.Pharmacist, "P");
-                }
+                ErrorText.Text = "Invalid username or password.";
+                ErrorText.Visibility = Visibility.Visible;
+                PasswordBox.Clear();
+                PasswordBox.Focus();
                 return;
             }
 
+            UserInfo loggedInUser = UserInfo.Login(username, passwordInt);
+            if (loggedInUser != null)
+            {
+                if (loggedInUser.Role == "Admin")
+                    OpenMain(SidebarRole.Admin, "A", loggedInUser); 
+                else
+                    OpenMain(SidebarRole.Pharmacist, "P", loggedInUser); 
+                return;
+            }
             ErrorText.Text = "Invalid username or password.";
             ErrorText.Visibility = Visibility.Visible;
             PasswordBox.Clear();
             PasswordBox.Focus();
         }
-
-        private void OpenMain(SidebarRole role, string userInitial)
+        private void OpenMain(SidebarRole role, string userInitial, UserInfo currentUser) 
         {
-            var main = new MainWindow(role, userInitial);
+            var main = new MainWindow(role, userInitial, currentUser); 
             main.Show();
             Close();
         }

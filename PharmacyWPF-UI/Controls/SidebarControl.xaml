@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="PharmacyWPF_UI.Controls.SidebarControl"
+<UserControl x:Class="PharmacyWPF_UI.Controls.SidebarControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -23,7 +23,7 @@
         <Border Grid.Row="0" Padding="0,16,0,12" BorderBrush="#c4d9d6" BorderThickness="0,0,0,1">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="16,0">
                 <iconPacks:PackIconMaterial Kind="Pill" Width="22" Height="22" Foreground="#00acb2"/>
-                <TextBlock Text="PharmaCare"
+                <TextBlock Text="Pharmacy-LNU"
                            Margin="10,0,0,0"
                            Foreground="#3b413c"
                            FontSize="18"
@@ -58,6 +58,8 @@
                             <TextBlock Text="Sell Medicine" FontFamily="Alexandria" FontSize="15" FontWeight="DemiBold" VerticalAlignment="Center"/>
                         </StackPanel>
                     </RadioButton>
+
+                   
 
                     <!-- Medicine expandable -->
                     <StackPanel Margin="0,2,0,0">
@@ -163,6 +165,16 @@
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconMaterial Kind="AccountOutline" Width="18" Height="18" Margin="0,0,12,0" VerticalAlignment="Center" Foreground="#00acb2"/>
                             <TextBlock Text="User Management" FontFamily="Alexandria" FontSize="15" FontWeight="DemiBold" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </RadioButton>
+                    
+                    <RadioButton GroupName="Nav"
+              Tag="SalesHistory"
+              Style="{StaticResource SidebarNavRadioButtonStyle}"
+              Checked="NavItem_Checked">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="History" Width="18" Height="18" Margin="0,0,12,0" VerticalAlignment="Center" Foreground="#00acb2"/>
+                            <TextBlock Text="Sales History" FontFamily="Alexandria" FontSize="15" FontWeight="DemiBold" VerticalAlignment="Center"/>
                         </StackPanel>
                     </RadioButton>
 

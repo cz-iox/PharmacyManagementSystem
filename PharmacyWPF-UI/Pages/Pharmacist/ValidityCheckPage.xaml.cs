@@ -20,7 +20,7 @@ namespace PharmacyWPF_UI.Pages.Pharmacist
         {
             medicines.Clear();
 
-            string[] MediList = File.ReadAllLines("C:\\Users\\Talal\\Desktop\\PharmacyManagementSystem\\medicines.txt");
+            string[] MediList = File.ReadAllLines(Path.Combine(AppContext.BaseDirectory, "medicines.txt"));
 
             //loop 3shan n5zn el data of medicines
             for (int i = 1; i < MediList.Length; i++)

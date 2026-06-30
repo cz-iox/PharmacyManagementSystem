@@ -162,6 +162,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Admin\SalesHistoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Admin\UserManagementPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -212,6 +216,9 @@
     </Compile>
     <Compile Include="Pages\Admin\PharmacistsPage.xaml.cs">
       <DependentUpon>PharmacistsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Admin\SalesHistoryPage.xaml.cs">
+      <DependentUpon>SalesHistoryPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Admin\UserManagementPage.xaml.cs">
       <DependentUpon>UserManagementPage.xaml</DependentUpon>
@@ -290,6 +297,7 @@
     <Resource Include="Resources\Roboto\RobotoCondensed-Light.ttf" />
     <Resource Include="Resources\Roboto\RobotoCondensed-LightItalic.ttf" />
     <Resource Include="Resources\Roboto\RobotoCondensed-Regular.ttf" />
+    <Resource Include="Resources\app_icon.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

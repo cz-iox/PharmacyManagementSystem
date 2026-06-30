@@ -4,15 +4,18 @@ using PharmacyWPF_UI.Pages.Pharmacist;
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using UserInfoClass;
 
 namespace PharmacyWPF_UI
 {
     public partial class MainWindow : Window
     {
-        public MainWindow(SidebarRole role, string userInitial)
+        private UserInfo _currentUser; 
+
+        public MainWindow(SidebarRole role, string userInitial, UserInfo currentUser)
         {
             InitializeComponent();
-
+            _currentUser = currentUser;
             Sidebar.Role = role;
             TopBar.SetUser(userInitial, role);
             Sidebar.NavigationRequested += OnNavigationRequested;
@@ -40,7 +43,7 @@ namespace PharmacyWPF_UI
                 case "Dashboard":
                     return new DashboardPage();
                 case "SellMedicine":
-                    return new SellMedicinePage();
+                    return new SellMedicinePage(_currentUser); 
                 case "AddMedicine":
                     return new AddMedicinePage();
                 case "ModifyMedicine":
@@ -59,6 +62,8 @@ namespace PharmacyWPF_UI
                     return new PharmacyWPF_UI.Pages.Admin.ViewMedicinePage();
                 case "AdminValidityCheck":
                     return new AdminValidityCheckPage();
+                case "SalesHistory":
+                    return new SalesHistoryPage();
                 default:
                     return null;
             }

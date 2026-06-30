@@ -78,21 +78,7 @@
                         <DatePicker x:Name="ExpiryDatePicker" Height="38" FontSize="13" Background="#F9FAFB" BorderBrush="#c4d9d6" BorderThickness="1"/>
                     </StackPanel>
 
-                    <StackPanel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="4">
-                        <TextBlock Text="Notes" FontSize="12" Foreground="#8a9996" Margin="0,0,0,4" FontFamily="Alexandria"/>
-                        <TextBox x:Name="NotesBox"
-                                 FontFamily="Alexandria"
-                                 Height="88"
-                                 Padding="10,8"
-                                 FontSize="13"
-                                 Background="#F9FAFB"
-                                 Foreground="#3b413c"
-                                 BorderBrush="#c4d9d6"
-                                 BorderThickness="1"
-                                 TextWrapping="Wrap"
-                                 AcceptsReturn="True"
-                                 VerticalContentAlignment="Top"/>
-                    </StackPanel>
+                    <StackPanel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="4"/>
                 </Grid>
             </Border>
 

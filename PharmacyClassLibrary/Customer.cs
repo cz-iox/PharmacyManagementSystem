@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
+﻿using System.Collections.Generic;
+using System;
 
 namespace PharmacyClassLibrary
 {
@@ -15,13 +11,9 @@ namespace PharmacyClassLibrary
             set
             {
                 if (value > 0 && value.ToString().Length == 14)
-                {
                     customer_ID = value;
-                }
                 else
-                { 
-                    throw new ArgumentException("Customer ID must be a positive 14-digit number."); 
-                }
+                    throw new ArgumentException("Customer ID must be a positive 14-digit number.");
             }
             get { return customer_ID; }
         }
@@ -49,7 +41,6 @@ namespace PharmacyClassLibrary
         }
 
         public List<Medicine> PurchasedMedicines { get; set; } = new List<Medicine>();
-
         public bool HasValidPrescription { get; set; }
 
         public Customer()
@@ -60,6 +51,20 @@ namespace PharmacyClassLibrary
         }
     }
 
-
+    // ✅ نفس الـ namespace بدون تداخل
+    public class CartItem
+    {
+        public string TransactionId { get; set; }
+        public string MedicineName { get; set; }
+        public string MedicineId { get; set; }
+        public string ExpiryDate { get; set; }
+        public string CustomerName { get; set; }
+        public string CustomerId { get; set; }
+        public string CustomerAge { get; set; }
+        public int Quantity { get; set; }
+        public string TotalPrice { get; set; }
+        public double TotalPriceValue { get; set; }
+        public string PharmacistName { get; set; }
+        public string Date { get; set; }
+    }
 }
-

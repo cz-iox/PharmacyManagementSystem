@@ -12,6 +12,7 @@ namespace PharmacyWPF_UI.Pages.Admin
         {
             InitializeComponent();
             LoadStaffData();
+
         }
 
         private void LoadStaffData()
