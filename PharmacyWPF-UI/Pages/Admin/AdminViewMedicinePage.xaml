@@ -1,0 +1,112 @@
+<Page x:Class="PharmacyWPF_UI.Pages.Admin.ViewMedicinePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:controls="clr-namespace:PharmacyWPF_UI.Controls"
+      xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      mc:Ignorable="d"
+      Title="View Medicine"
+      Background="Transparent">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="28,24,28,28">
+            <Grid Margin="0,0,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <TextBlock Text="View Medicine"
+                               FontFamily="Alexandria"
+                               FontSize="28"
+                               FontWeight="Bold"
+                               Foreground="#3b413c"/>
+                    <TextBlock Text="Browse the complete medicine inventory (read-only)"
+                               FontFamily="Alexandria"
+                               FontSize="14"
+                               Foreground="#8a9996"
+                               Margin="0,6,0,0"/>
+                </StackPanel>
+                <Button Grid.Column="1"
+                        Style="{StaticResource GhostButtonStyle}"
+                        Height="40"
+                        Padding="16,0"
+                        VerticalAlignment="Center"
+                        Click="ExportBtn_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <iconPacks:PackIconMaterial Kind="DownloadOutline" Width="16" Height="16" Margin="0,0,8,0" VerticalAlignment="Center"/>
+                        <TextBlock Text="Export" FontFamily="Alexandria" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+
+            <Grid Margin="0,0,0,16">
+                <TextBox x:Name="SearchBox"
+                          Height="36" Padding="10,0" FontSize="13" Background="#F9FAFB" Foreground="#3b413c" BorderBrush="#c4d9d6" BorderThickness="1" VerticalContentAlignment="Center"
+                          FontFamily="Alexandria"
+                          TextChanged="SearchBox_TextChanged"/>
+                <iconPacks:PackIconMaterial Kind="Magnify"
+                                Width="16" Height="16"
+                                Foreground="#8a9996"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Margin="0,0,12,0"
+                                IsHitTestVisible="False"/>
+                <TextBlock Text="Search by name, ID, or category..."
+                           IsHitTestVisible="False"
+                           FontFamily="Alexandria"
+                           FontSize="13"
+                           Foreground="#8a9996"
+                           Margin="36,0,0,0"
+                           VerticalAlignment="Center">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding Text, ElementName=SearchBox}" Value=""/>
+                                        <Condition Binding="{Binding IsFocused, ElementName=SearchBox}" Value="False"/>
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </MultiDataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+
+            <Border Background="White"
+          BorderBrush="#c4d9d6"
+          BorderThickness="1"
+          CornerRadius="12"
+          Padding="20">
+                <DataGrid x:Name="MedicineGrid"
+               IsReadOnly="True"
+               AutoGenerateColumns="False"
+               Style="{StaticResource ModernDataGridStyle}"
+               ColumnHeaderStyle="{StaticResource ModernDataGridColumnHeaderStyle}"
+               RowStyle="{StaticResource ModernDataGridRowStyle}"
+               MinHeight="420">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding MedicineID}" Width="100" FontFamily="Alexandria"/>
+                        <DataGridTextColumn Header="NAME" Binding="{Binding Name}" Width="auto" FontFamily="Alexandria"/>
+                        <DataGridTextColumn Header="PRICE" Binding="{Binding Price}" Width="70" FontFamily="Alexandria"/>
+                        <DataGridTextColumn Header="MANUFACTURER" Binding="{Binding Manufacturer}" Width="auto" FontFamily="Alexandria"/>
+                        <DataGridTextColumn Header="QUANTITY" Binding="{Binding QuantityInStock}" Width="90" FontFamily="Alexandria"/>
+                        <DataGridTextColumn Header="CATEGORY" Binding="{Binding MedicineType}" Width="90" FontFamily="Alexandria"/>
+                        <DataGridTextColumn Header="EXPIRY DATE" Binding="{Binding ExpiryDate, StringFormat=yyyy-MM-dd}" Width="auto" FontFamily="Alexandria"/>
+                        <DataGridTemplateColumn Header="STATUS" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <controls:StatusBadgeControl Status="{Binding Status}" Width="100" Margin="0,4"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

@@ -1,0 +1,255 @@
+<UserControl x:Class="PharmacyWPF_UI.Controls.SidebarControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             mc:Ignorable="d"
+             d:DesignHeight="800"
+             d:DesignWidth="240">
+
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+    </UserControl.Resources>
+
+    <Grid Background="#f5f1f1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Logo -->
+        <Border Grid.Row="0" Padding="0,16,0,12" BorderBrush="#c4d9d6" BorderThickness="0,0,0,1">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="16,0">
+                <iconPacks:PackIconMaterial Kind="Pill" Width="22" Height="22" Foreground="#00acb2"/>
+                <TextBlock Text="Pharmacy-LNU"
+                           Margin="10,0,0,0"
+                           Foreground="#3b413c"
+                           FontSize="18"
+                           FontWeight="Bold"
+                           FontFamily="Alexandria"
+                           VerticalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Navigation -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel Margin="0,8,0,0">
+
+                <!-- Pharmacist navigation -->
+                <StackPanel x:Name="PharmacistNav">
+                    <RadioButton GroupName="Nav"
+                                 Tag="Dashboard"
+                                 Style="{StaticResource SidebarNavRadioButtonStyle}"
+                                 Checked="NavItem_Checked">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="ViewDashboardOutline" Width="18" Height="18" Margin="0,0,12,0" VerticalAlignment="Center" Foreground="#00acb2"/>
+                            <TextBlock Text="Dashboard" FontFamily="Alexandria" FontSize="15" FontWeight="DemiBold" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </RadioButton>
+
+                    <RadioButton GroupName="Nav"
+                                 Tag="SellMedicine"
+                                 Style="{StaticResource SidebarNavRadioButtonStyle}"
+                                 Checked="NavItem_Checked">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="CartOutline" Width="18" Height="18" Margin="0,0,12,0" VerticalAlignment="Center" Foreground="#00acb2"/>
+                            <TextBlock Text="Sell Medicine" FontFamily="Alexandria" FontSize="15" FontWeight="DemiBold" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </RadioButton>
+
+                   
+
+                    <!-- Medicine expandable -->
+                    <StackPanel Margin="0,2,0,0">
+                        <ToggleButton x:Name="PharmacistMedicineToggle"
+                                      IsChecked="True"
+                                      Style="{StaticResource SidebarExpandHeaderToggleStyle}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <iconPacks:PackIconMaterial Kind="PackageVariantClosed" Width="18" Height="18" VerticalAlignment="Center" Foreground="#00acb2"/>
+                                <TextBlock Grid.Column="1"
+                                           Text="Medicine"
+                                           Margin="12,0,0,0"
+                                           FontFamily="Alexandria"
+                                           FontSize="15"
+                                           FontWeight="DemiBold"
+                                           VerticalAlignment="Center"
+                                           Foreground="#3b413c"/>
+                                <iconPacks:PackIconMaterial x:Name="PharmacistMedicineChevron"
+                                                            Grid.Column="2"
+                                                            Width="16"
+                                                            Height="16"
+                                                            VerticalAlignment="Center"
+                                                            Foreground="#8a9996">
+                                    <iconPacks:PackIconMaterial.Style>
+                                        <Style TargetType="iconPacks:PackIconMaterial">
+                                            <Setter Property="Kind" Value="ChevronRight"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsChecked, ElementName=PharmacistMedicineToggle}" Value="True">
+                                                    <Setter Property="Kind" Value="ChevronDown"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </iconPacks:PackIconMaterial.Style>
+                                </iconPacks:PackIconMaterial>
+                            </Grid>
+                        </ToggleButton>
+
+                        <Border Margin="24,4,12,0"
+                                Padding="12,0,0,0"
+                                BorderBrush="#E0E8E6"
+                                BorderThickness="2,0,0,0"
+                                Visibility="{Binding IsChecked, ElementName=PharmacistMedicineToggle, Converter={StaticResource BoolToVis}}">
+                            <StackPanel>
+                                <RadioButton GroupName="Nav" Tag="AddMedicine" Style="{StaticResource SidebarSubNavRadioButtonStyle}" Checked="NavItem_Checked">
+                                    <StackPanel Orientation="Horizontal">
+                                        <iconPacks:PackIconMaterial Kind="Plus" Width="16" Height="16" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                                        <TextBlock Text="Add Medicine" FontFamily="Alexandria" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </RadioButton>
+                                <RadioButton GroupName="Nav" Tag="ModifyMedicine" Style="{StaticResource SidebarSubNavRadioButtonStyle}" Checked="NavItem_Checked">
+                                    <StackPanel Orientation="Horizontal">
+                                        <iconPacks:PackIconMaterial Kind="PencilOutline" Width="16" Height="16" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                                        <TextBlock Text="Modify Medicine" FontFamily="Alexandria" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </RadioButton>
+                                <RadioButton GroupName="Nav" Tag="ViewMedicine" Style="{StaticResource SidebarSubNavRadioButtonStyle}" Checked="NavItem_Checked">
+                                    <StackPanel Orientation="Horizontal">
+                                        <iconPacks:PackIconMaterial Kind="EyeOutline" Width="16" Height="16" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                                        <TextBlock Text="View Medicine" FontFamily="Alexandria" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </RadioButton>
+                                <RadioButton GroupName="Nav" Tag="ValidityCheck" Style="{StaticResource SidebarSubNavRadioButtonStyle}" Checked="NavItem_Checked">
+                                    <StackPanel Orientation="Horizontal">
+                                        <iconPacks:PackIconMaterial Kind="AlertOutline" Width="16" Height="16" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                                        <TextBlock Text="Validity Check" FontFamily="Alexandria" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </RadioButton>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </StackPanel>
+
+                <!-- Admin navigation -->
+                <StackPanel x:Name="AdminNav" Visibility="Collapsed">
+                    <RadioButton GroupName="Nav"
+                                 Tag="AdminDashboard"
+                                 Style="{StaticResource SidebarNavRadioButtonStyle}"
+                                 Checked="NavItem_Checked">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="ViewDashboardOutline" Width="18" Height="18" Margin="0,0,12,0" VerticalAlignment="Center" Foreground="#00acb2"/>
+                            <TextBlock Text="Admin Dashboard" FontFamily="Alexandria" FontSize="15" FontWeight="DemiBold" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </RadioButton>
+
+                    <RadioButton GroupName="Nav"
+                                 Tag="Pharmacists"
+                                 Style="{StaticResource SidebarNavRadioButtonStyle}"
+                                 Checked="NavItem_Checked">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="AccountGroupOutline" Width="18" Height="18" Margin="0,0,12,0" VerticalAlignment="Center" Foreground="#00acb2"/>
+                            <TextBlock Text="Pharmacists" FontFamily="Alexandria" FontSize="15" FontWeight="DemiBold" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </RadioButton>
+
+                    <RadioButton GroupName="Nav"
+                                 Tag="UserManagement"
+                                 Style="{StaticResource SidebarNavRadioButtonStyle}"
+                                 Checked="NavItem_Checked">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="AccountOutline" Width="18" Height="18" Margin="0,0,12,0" VerticalAlignment="Center" Foreground="#00acb2"/>
+                            <TextBlock Text="User Management" FontFamily="Alexandria" FontSize="15" FontWeight="DemiBold" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </RadioButton>
+                    
+                    <RadioButton GroupName="Nav"
+              Tag="SalesHistory"
+              Style="{StaticResource SidebarNavRadioButtonStyle}"
+              Checked="NavItem_Checked">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="History" Width="18" Height="18" Margin="0,0,12,0" VerticalAlignment="Center" Foreground="#00acb2"/>
+                            <TextBlock Text="Sales History" FontFamily="Alexandria" FontSize="15" FontWeight="DemiBold" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </RadioButton>
+
+                    <!-- Medicine expandable (admin) -->
+                    <StackPanel Margin="0,2,0,0">
+                        <ToggleButton x:Name="AdminMedicineToggle"
+                                      Style="{StaticResource SidebarExpandHeaderToggleStyle}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <iconPacks:PackIconMaterial Kind="PackageVariantClosed" Width="18" Height="18" VerticalAlignment="Center" Foreground="#00acb2"/>
+                                <TextBlock Grid.Column="1"
+                                           Text="Medicine"
+                                           Margin="12,0,0,0"
+                                           FontFamily="Alexandria"
+                                           FontSize="15"
+                                           FontWeight="DemiBold"
+                                           VerticalAlignment="Center"/>
+                                <iconPacks:PackIconMaterial Grid.Column="2"
+                                                            Width="16"
+                                                            Height="16"
+                                                            VerticalAlignment="Center"
+                                                            Foreground="#8a9996">
+                                    <iconPacks:PackIconMaterial.Style>
+                                        <Style TargetType="iconPacks:PackIconMaterial">
+                                            <Setter Property="Kind" Value="ChevronRight"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsChecked, ElementName=AdminMedicineToggle}" Value="True">
+                                                    <Setter Property="Kind" Value="ChevronDown"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </iconPacks:PackIconMaterial.Style>
+                                </iconPacks:PackIconMaterial>
+                            </Grid>
+                        </ToggleButton>
+
+                        <Border Margin="24,4,12,0"
+                                Padding="12,0,0,0"
+                                BorderBrush="#E0E8E6"
+                                BorderThickness="2,0,0,0"
+                                Visibility="{Binding IsChecked, ElementName=AdminMedicineToggle, Converter={StaticResource BoolToVis}}">
+                            <StackPanel>
+                                <RadioButton GroupName="Nav" Tag="AdminViewMedicine" Style="{StaticResource SidebarSubNavRadioButtonStyle}" Checked="NavItem_Checked">
+                                    <StackPanel Orientation="Horizontal">
+                                        <iconPacks:PackIconMaterial Kind="EyeOutline" Width="16" Height="16" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                                        <TextBlock Text="View Medicine" FontFamily="Alexandria" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </RadioButton>
+                                <RadioButton GroupName="Nav" Tag="AdminValidityCheck" Style="{StaticResource SidebarSubNavRadioButtonStyle}" Checked="NavItem_Checked">
+                                    <StackPanel Orientation="Horizontal">
+                                        <iconPacks:PackIconMaterial Kind="CalendarCheckOutline" Width="16" Height="16" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                                        <TextBlock Text="Validity Check" FontFamily="Alexandria" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </RadioButton>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </StackPanel>
+
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Sign out -->
+        <Button Grid.Row="2"
+                Style="{StaticResource SidebarSignOutButtonStyle}"
+                Click="SignOut_Click"
+                Margin="0,0,0,12">
+            <StackPanel Orientation="Horizontal">
+                <iconPacks:PackIconMaterial Kind="Logout" Width="18" Height="18" Margin="0,0,12,0" VerticalAlignment="Center"/>
+                <TextBlock Text="Sign Out" FontFamily="Alexandria" FontSize="14" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+    </Grid>
+</UserControl>

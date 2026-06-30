@@ -1,0 +1,313 @@
+<Page x:Class="PharmacyWPF_UI.Pages.Pharmacist.SellMedicinePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      mc:Ignorable="d"
+      Title="Sell Medicine"
+      Background="Transparent">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+        <Grid Margin="28,24,28,28">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Margin="0,0,0,20">
+                <TextBlock Text="Sell Medicine"
+                           FontFamily="Alexandria"
+                           FontSize="28"
+                           FontWeight="Bold"
+                           Foreground="#3b413c"/>
+                <TextBlock Text="Search medicines, build a cart, and complete the sale"
+                           FontFamily="Alexandria"
+                           FontSize="14"
+                           Foreground="#8a9996"
+                           Margin="0,6,0,0"/>
+            </StackPanel>
+
+            <Grid Grid.Row="1" Margin="0,0,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="280"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0"
+                        Background="White"
+                        BorderBrush="#c4d9d6"
+                        BorderThickness="1"
+                        CornerRadius="12"
+                        Padding="20">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Search Medicine"
+                                   FontSize="16" FontWeight="SemiBold" Foreground="#3b413c"
+                                   FontFamily="Alexandria"
+                                   Margin="0,0,0,12"/>
+
+                        <Grid Grid.Row="1" Margin="0,0,0,12">
+                            <TextBox x:Name="SearchBox"
+                                     Height="36" Padding="10,0" FontSize="13" Background="#F9FAFB" Foreground="#3b413c" BorderBrush="#c4d9d6" BorderThickness="1" VerticalContentAlignment="Center"
+                                     FontFamily="Alexandria"
+                                     TextChanged="SearchBox_TextChanged"/>
+                            <iconPacks:PackIconMaterial Kind="Magnify"
+                                                        Width="16"
+                                                        Height="16"
+                                                        Foreground="#8a9996"
+                                                        HorizontalAlignment="Right"
+                                                        VerticalAlignment="Center"
+                                                        Margin="0,0,12,0"
+                                                        IsHitTestVisible="False"/>
+                            <TextBlock Text="Name or ID..."
+                                       IsHitTestVisible="False"
+                                       FontFamily="Alexandria"
+                                       FontSize="13"
+                                       Foreground="#8a9996"
+                                       Margin="12,0,36,0"
+                                       VerticalAlignment="Center">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding Text, ElementName=SearchBox}" Value=""/>
+                                                    <Condition Binding="{Binding IsFocused, ElementName=SearchBox}" Value="False"/>
+                                                </MultiDataTrigger.Conditions>
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </MultiDataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+
+                        <ListBox x:Name="SearchResultsList"
+                                 Grid.Row="2"
+                                 MinHeight="320"
+                                 MaxHeight="420"
+                                 BorderBrush="#c4d9d6"
+                                 BorderThickness="1"
+                                 DisplayMemberPath="Name"
+                                 SelectionChanged="SearchResultsList_SelectionChanged">
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem">
+                                    <Setter Property="Padding" Value="12,10"/>
+                                    <Setter Property="FontFamily" Value="Alexandria"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="#daf0ee"/>
+                                        </Trigger>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#F5F9F8"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+                        </ListBox>
+                    </Grid>
+                </Border>
+
+               
+                <Border Grid.Column="2"
+                        Background="White"
+                        BorderBrush="#c4d9d6"
+                        BorderThickness="1"
+                        CornerRadius="12"
+                        Padding="24,20">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Sale Details"
+                                   FontFamily="Alexandria"
+                                   FontSize="16"
+                                   FontWeight="SemiBold"
+                                   Foreground="#3b413c"
+                                   Margin="0,0,0,20"/>
+
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                           
+                            <StackPanel Grid.Column="0" Grid.Row="0" Margin="0,0,0,14">
+                                <TextBlock Text="Medicine ID" FontSize="12" Foreground="#8a9996" Margin="0,0,0,4" FontFamily="Alexandria"/>
+                                <ComboBox x:Name="MedicineIdCombo"
+                                          Height="38" FontSize="13" Background="#E6F7F8" Foreground="#3b413c" BorderBrush="#c4d9d6" BorderThickness="1" VerticalContentAlignment="Center"
+                                          DisplayMemberPath="MedicineID"
+                                          SelectionChanged="MedicineCombo_SelectionChanged"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="2" Grid.Row="0" Margin="0,0,0,14">
+                                <TextBlock Text="Customer ID" FontSize="12" Foreground="#8a9996" Margin="0,0,0,4" FontFamily="Alexandria"/>
+                                <TextBox x:Name="CustomerIdBox"
+                                         Height="36" Padding="10,0" FontSize="13" Background="#F9FAFB" Foreground="#3b413c" BorderBrush="#c4d9d6" BorderThickness="1" VerticalContentAlignment="Center"
+                                         FontFamily="Alexandria"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="0" Grid.Row="1" Margin="0,0,0,14">
+                                <TextBlock Text="Medicine Name" FontSize="12" Foreground="#8a9996" Margin="0,0,0,4" FontFamily="Alexandria"/>
+                                <ComboBox x:Name="MedicineNameCombo"
+                                          Height="38" FontSize="13" Background="#E6F7F8" Foreground="#3b413c" BorderBrush="#c4d9d6" BorderThickness="1" VerticalContentAlignment="Center"
+                                          DisplayMemberPath="Name"
+                                          SelectionChanged="MedicineCombo_SelectionChanged"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="2" Grid.Row="1" Margin="0,0,0,14">
+                                <TextBlock Text="Customer Name" FontSize="12" Foreground="#8a9996" Margin="0,0,0,4" FontFamily="Alexandria"/>
+                                <TextBox x:Name="CustomerNameBox"
+                                         Height="36" Padding="10,0" FontSize="13" Background="#F9FAFB" Foreground="#3b413c" BorderBrush="#c4d9d6" BorderThickness="1" VerticalContentAlignment="Center"
+                                         FontFamily="Alexandria"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="0" Grid.Row="2" Margin="0,0,0,14">
+                                <TextBlock Text="Expiry Date" FontSize="12" Foreground="#8a9996" Margin="0,0,0,4" FontFamily="Alexandria"/>
+                                <ComboBox x:Name="ExpiryCombo"
+                                          Height="38" FontSize="13" Background="#E6F7F8" Foreground="#3b413c" BorderBrush="#c4d9d6" BorderThickness="1" VerticalContentAlignment="Center"
+                                          DisplayMemberPath="ExpiryDate"
+                                          SelectionChanged="MedicineCombo_SelectionChanged"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="2" Grid.Row="2" Margin="0,0,0,14">
+                                <TextBlock Text="Customer Age" FontSize="12" Foreground="#8a9996" Margin="0,0,0,4" FontFamily="Alexandria"/>
+                                <TextBox x:Name="CustomerAgeBox"
+                                         Height="36" Padding="10,0" FontSize="13" Background="#F9FAFB" Foreground="#3b413c" BorderBrush="#c4d9d6" BorderThickness="1" VerticalContentAlignment="Center"
+                                         FontFamily="Alexandria"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="0" Grid.Row="3" Margin="0,0,0,0">
+                                <TextBlock Text="Number of Units" FontSize="12" Foreground="#8a9996" Margin="0,0,0,4" FontFamily="Alexandria"/>
+                                <TextBox x:Name="UnitsBox"
+                                         Height="36" Padding="10,0" FontSize="13" Background="#F9FAFB" Foreground="#3b413c" BorderBrush="#c4d9d6" BorderThickness="1" VerticalContentAlignment="Center"
+                                         FontFamily="Alexandria"
+                                         TextChanged="UnitsBox_TextChanged"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="2" Grid.Row="3">
+                                <TextBlock Text="Total Price" FontSize="12" Foreground="#8a9996" Margin="0,0,0,4" FontFamily="Alexandria"/>
+                                <TextBox x:Name="TotalPriceBox"
+                                         Height="36" Padding="10,0" FontSize="13" Background="#E6F7F8" Foreground="#085041" BorderBrush="#9db5b2" BorderThickness="1" IsReadOnly="True" VerticalContentAlignment="Center"
+                                         FontFamily="Alexandria"
+                                         Text="0.00"/>
+                            </StackPanel>
+                        </Grid>
+
+                        <Grid Grid.Row="2" Margin="0,8,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Orientation="Horizontal">
+                                <Button x:Name="AddToCartBtn"
+                                        Style="{StaticResource PrimaryButtonStyle}"
+                                        Height="40"
+                                        Padding="20,0"
+                                        Margin="0,0,10,0"
+                                        Click="AddToCartBtn_Click">
+                                    <StackPanel Orientation="Horizontal">
+                                        <iconPacks:PackIconMaterial Kind="CartPlus" Width="18" Height="18" Margin="0,0,8,0" VerticalAlignment="Center"/>
+                                        <TextBlock Text="Add to Cart" FontFamily="Alexandria" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button Style="{StaticResource GhostButtonStyle}"
+                                        Height="40"
+                                        Padding="16,0"
+                                        Click="ResetBtn_Click">
+                                    <StackPanel Orientation="Horizontal">
+                                        <iconPacks:PackIconMaterial Kind="Refresh" Width="16" Height="16" Margin="0,0,8,0" VerticalAlignment="Center"/>
+                                        <TextBlock Text="Reset" FontFamily="Alexandria" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+
+                            <CheckBox Grid.Column="1"
+                                      x:Name="PrescriptionCheck"
+                                      Content="Has Valid Prescription?"
+                                      FontFamily="Alexandria"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Right"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+
+           
+            <Border Grid.Row="2"
+                    Background="White"
+                    BorderBrush="#c4d9d6"
+                    BorderThickness="1"
+                    CornerRadius="12"
+                    Padding="24,20">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Transaction Details"
+                               FontFamily="Alexandria"
+                               FontSize="16"
+                               FontWeight="SemiBold"
+                               Foreground="#3b413c"
+                               Margin="0,0,0,16"/>
+
+                    <DataGrid x:Name="TransactionGrid"
+                              Grid.Row="1"
+                              Style="{StaticResource ModernDataGridStyle}"
+                              ColumnHeaderStyle="{StaticResource ModernDataGridColumnHeaderStyle}"
+                              RowStyle="{StaticResource ModernDataGridRowStyle}"
+                              MinHeight="180"
+                              Margin="0,0,0,16">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="TRANSACTION ID" Binding="{Binding TransactionId}" Width="120" FontFamily="Alexandria"/>
+                            <DataGridTextColumn Header="MEDICINE NAME" Binding="{Binding MedicineName}" Width="*" FontFamily="Alexandria"/>
+                            <DataGridTextColumn Header="MEDICINE ID" Binding="{Binding MedicineId}" Width="100" FontFamily="Alexandria"/>
+                            <DataGridTextColumn Header="EXPIRY DATE" Binding="{Binding ExpiryDate}" Width="110" FontFamily="Alexandria"/>
+                            <DataGridTextColumn Header="CUSTOMER" Binding="{Binding CustomerName}" Width="*" FontFamily="Alexandria"/>
+                            <DataGridTextColumn Header="QTY" Binding="{Binding Quantity}" Width="60" FontFamily="Alexandria"/>
+                            <DataGridTextColumn Header="TOTAL" Binding="{Binding TotalPrice}" Width="90" FontFamily="Alexandria"/>
+                            <DataGridTextColumn Header="DATE" Binding="{Binding Date}" Width="140" FontFamily="Alexandria"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <Button Grid.Row="2"
+                            x:Name="PurchaseBtn"
+                            Style="{StaticResource PrimaryButtonStyle}"
+                            Height="42"
+                            Padding="24,0"
+                            HorizontalAlignment="Right"
+                            Click="PurchaseBtn_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconMaterial Kind="PrinterOutline" Width="18" Height="18" Margin="0,0,8,0" VerticalAlignment="Center"/>
+                            <TextBlock Text="Purchase &amp; Print" FontFamily="Alexandria" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                </Grid>
+            </Border>
+        </Grid>
+    </ScrollViewer>
+</Page>
