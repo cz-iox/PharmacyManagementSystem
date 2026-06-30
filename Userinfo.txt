@@ -1,3 +1,0 @@
-potato,123578,123,Admin,2026-05-13,,Active
-kharay bin zag,1111,123,Admin,2026-05-13,,Active
-a,1,1,Admin,2026-05-13,,Active
